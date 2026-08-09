@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "S&STradu Web",
+  "version": "1.0",
+  "permissions": ["storage", "webRequest"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "http://129.146.84.143:5001/*",
+    "http://127.0.0.1:5001/*",
+    "http://localhost:5001/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [{
+    "matches": ["*://*.youtube.com/watch*"],
+    "js": ["ass_parser.js", "content.js"],
+    "css": ["style.css"]
+  }],
+  "web_accessible_resources": [{
+    "resources": ["logo.png"],
+    "matches": ["*://*.youtube.com/*"]
+  }]
+}
