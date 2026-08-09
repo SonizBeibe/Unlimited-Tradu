@@ -106,5 +106,5 @@ Sin embargo, **la copia, modificación, distribución o publicación de versione
 
 ---
 <div align="center">
-  <p>Made with ❤️ by <strong><a href="https://github.com/TU_USUARIO">Tu Nombre / Nickname</a></strong></p>
+  <p>Made with ❤️ by <strong><a href="https://github.com/SonizBeibe">Soniz</a></strong></p>
 </div>
