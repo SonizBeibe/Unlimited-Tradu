@@ -6,7 +6,7 @@
 [![Chrome Extension](https://img.shields.io/badge/Platform-Google_Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](#)
 [![Powered by Gemini](https://img.shields.io/badge/AI_Engine-Google_Gemini-8E75B2?style=flat-square&logo=googlebard&logoColor=white)](#)
 [![JavaScript](https://img.shields.io/badge/Code-Vanilla_JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](#)
-[![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat-square)](#license--fair-use)
+[![License](https://img.shields.io/badge/License-MIT-red?style=flat-square)](#license--fair-use)
 
 *A next-gen Chrome extension that translates heavily styled YouTube subtitles (SRV3 / ASS) into any language, flawlessly preserving their original visual effects, typography, and animations.*
 
