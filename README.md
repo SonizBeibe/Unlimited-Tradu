@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌌 Unlimited Tradu Web (S&S Tradu)
+# 🌌 Unlimited Tradu Web
 **Break the language barrier. Preserve the art.**
 
 [![Chrome Extension](https://img.shields.io/badge/Platform-Google_Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](#)
