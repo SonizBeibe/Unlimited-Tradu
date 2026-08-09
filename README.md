@@ -56,7 +56,7 @@ However, **copying, modifying, distributing, or publishing derivative versions i
 
 <br>
 <div align="center">
-  <a href="https://ko-fi.com/TU_USUARIO"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi"></a>
+  <a href="https://ko-fi.com/sonizzidk"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi"></a>
 </div>
 <br>
 
