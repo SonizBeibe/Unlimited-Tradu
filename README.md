@@ -80,7 +80,7 @@ However, **copying, modifying, distributing, or publishing derivative versions i
 
 ### ⚙️ Cómo Instalar (Modo Desarrollador)
 
-1. Descarga el archivo `.zip` más reciente desde la pestaña de [Releases](https://github.com/TU_USUARIO/TU_REPOSITORIO/releases) y extráelo en una carpeta.
+1. Descarga el archivo `.zip` más reciente desde la pestaña de [Releases](https://github.com/SonizBeibe/Unlimited-Tradu/releases/tag/v1.0.0) y extráelo en una carpeta.
 2. Abre Google Chrome y navega a `chrome://extensions/`.
 3. Activa el **"Modo desarrollador"** (esquina superior derecha).
 4. Haz clic en **"Cargar descomprimida"** y selecciona la carpeta que extrajiste.
@@ -100,7 +100,7 @@ Sin embargo, **la copia, modificación, distribución o publicación de versione
 
 <br>
 <div align="center">
-  <a href="https://ko-fi.com/TU_USUARIO"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi"></a>
+  <a href="https://ko-fi.com/sonizzidk"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi"></a>
 </div>
 <br>
 
