@@ -36,7 +36,7 @@
 
 ### ⚙️ How to Install (Developer Mode)
 
-1. Download the latest `.zip` file from the [Releases](https://github.com/TU_USUARIO/TU_REPOSITORIO/releases) tab and extract it to a folder.
+1. Download the latest `.zip` file from the [Releases](https://github.com/SonizBeibe/Unlimited-Tradu/releases/tag/v1.0.0) tab and extract it to a folder.
 2. Open Google Chrome and navigate to `chrome://extensions/`.
 3. Toggle **"Developer mode"** on (top right corner).
 4. Click **"Load unpacked"** and select the folder you extracted.
