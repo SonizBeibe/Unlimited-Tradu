@@ -1,4 +1,3 @@
-/* Estilos para el panel flotante de S&STradu */
 #sstradu-panel {
     position: absolute;
     top: 60px;
@@ -12,7 +11,7 @@
     font-family: 'Roboto', Arial, sans-serif;
     z-index: 999999;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    display: none; /* Oculto por defecto */
+    display: none;
 }
 
 #sstradu-panel h3 {
@@ -61,7 +60,6 @@
     background-color: #65b8ff;
 }
 
-/* El botón que inyectaremos en el reproductor de YouTube */
 .ytp-sstradu-button {
     vertical-align: top;
     cursor: pointer;

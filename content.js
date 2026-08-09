@@ -1,8 +1,3 @@
-// =========================================================================
-// UI & LÓGICA DE EXTENSIÓN S&S TRADU - content.js
-// Interfaz, Idiomas y API Calls
-// =========================================================================
-
 (function() {
     'use strict';
 
@@ -12,9 +7,6 @@
     if (botonViejo) botonViejo.remove();
     window._sstraduFullLoaded = true;
 
-    // =========================================================================
-    // PANEL UI
-    // =========================================================================
     const panelHTML = `
         <div id="sstradu-panel" style="position:fixed;bottom:70px;right:20px;background:rgba(20,20,20,0.98);border:1px solid #444;padding:12px 14px;border-radius:10px;z-index:2147483647;width:270px;color:white;font-family:'YouTube Sans',Roboto,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,0.6);backdrop-filter:blur(10px); max-height: 90vh; overflow-y: auto; display:none;">
             
@@ -302,10 +294,6 @@
 
     document.getElementById('ss-ui-lang').addEventListener('change', e => applyUILang(e.target.value));
 
-    // =========================================================================
-    // EVENTOS Y CONTROLES DEL PANEL
-    // =========================================================================
-    
     document.getElementById('ss-title').addEventListener('click', () => {
         const btnDel = document.getElementById('ss-btn-del-cache');
         if (btnDel) {
@@ -382,9 +370,6 @@
         }
     }).observe(document.body, { childList: true, subtree: true });
 
-    // =========================================================================
-    // LÓGICA DE TRADUCCIÓN Y COMUNICACIÓN (Botón Traducir / Fetch)
-    // =========================================================================
     document.getElementById('ss-btn-stop').onclick = () => {
         if (window.SSTraduEngine) window.SSTraduEngine.limpiar();
         document.getElementById('ss-msg').innerText = '⏹ Subtítulos quitados.';
@@ -476,7 +461,6 @@
         });
     };
 
-    // Funcionalidad del botón borrar caché
     document.getElementById('ss-btn-del-cache').onclick = async () => {
         const btnDel = document.getElementById('ss-btn-del-cache');
         const msg    = document.getElementById('ss-msg');
@@ -514,18 +498,16 @@
         window._ssLastXmlData = null;
     };
 
-    // UI Updates Loop
     setInterval(() => {
         const controls = document.querySelector('.ytp-right-controls');
         if (controls && !document.getElementById('ss-toggle')) {
             const btn = document.createElement('button');
             btn.id = 'ss-toggle'; 
             btn.className = 'ytp-button';
-            
-            // Tooltip con la descripción
+
             btn.title = 'Panel UnlimitedTradu (U)';
             
-            const logoUrl = chrome.runtime.getURL("logo.png"); // Ya que confirmaste que es .png
+            const logoUrl = chrome.runtime.getURL("logo.png");
             btn.innerHTML = `<div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
                     <img src="${logoUrl}" style="width: 34px; height: 34px; object-fit: contain; border-radius: 4px;">
                  </div>`;
@@ -547,21 +529,15 @@
         infoEl.style.color = '#aaa';
     }, 1500);
 
-    // =========================================================================
-    // ATAJO DE TECLADO (Tecla U)
-    // =========================================================================
     document.addEventListener('keydown', (e) => {
-        // 1. Ignorar si el usuario está escribiendo en un input, textarea
         const tagName = e.target.tagName.toLowerCase();
         if (tagName === 'input' || tagName === 'textarea' || e.target.isContentEditable) {
             return; 
         }
 
-        // 2. Comprobar si la tecla presionada es la "u" o "U"
         if (e.key.toLowerCase() === 'u') {
             const panel = document.getElementById('sstradu-panel');
             if (panel) {
-                // Alternar la visibilidad del panel
                 panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
             }
         }

@@ -1,7 +1,3 @@
-// =========================================================================
-// MOTOR S&S TRADU - ass_parser.js (FINAL CON PARSER CLÁSICO INTEGRADO)
-// =========================================================================
-
 window.SSTraduEngine = (function() {
     let subtitleData = null;
     let syncInterval = null;
@@ -122,7 +118,6 @@ window.SSTraduEngine = (function() {
         });
     }
 
-    // ==================== ASS PARSER (EXTRAÍDO DEL ANTIGUO CONTENT.JS) ====================
     function parseASS(content) {
         const lines = content.split(/\r?\n/);
         const styles = {};
@@ -406,7 +401,6 @@ window.SSTraduEngine = (function() {
         if (!match) return NaN;
         const msPart = match[4].length === 2 ? parseInt(match[4]) * 10 : parseInt(match[4]);
         
-        // RETORNANDO MILISEGUNDOS PARA COMPATIBILIDAD CON ass_parser.js ORIGINAL
         return (parseInt(match[1]) * 3600000) + 
                (parseInt(match[2]) * 60000) + 
                (parseInt(match[3]) * 1000) + 
@@ -435,10 +429,6 @@ window.SSTraduEngine = (function() {
     function getDefaultASSStyle() {
         return { name: 'Default', fontname: 'Roboto', fontsize: 20, primaryColor: 'rgba(255, 255, 255, 1)', secondaryColor: 'rgba(255, 0, 0, 1)', outlineColor: 'rgba(0, 0, 0, 1)', backColor: 'rgba(0, 0, 0, 0.5)', outline: 2, shadow: 2, alignment: 2, marginl: 10, marginr: 10, marginv: 10, scalex: 100, scaley: 100, borderstyle: 1 };
     }
-
-    // =========================================================================
-    // MAPEO EXACTO DE FUENTES YT Y RENDERIZADO VISUAL
-    // =========================================================================
 
     function applyFontToSpan(span, fontName) {
         const fn = String(fontName || '').trim().toLowerCase();
@@ -590,7 +580,6 @@ window.SSTraduEngine = (function() {
 
                 if (!_fxShadow) { sStyle.outline = 0; sStyle.shadow = 0; sStyle.blur = 0; }
 
-                // ======= INYECCIÓN DE LA FUENTE ========
                 applyFontToSpan(span, sStyle.fontname || sStyle.fontName);
 
                 span.style.setProperty('font-size', `${Math.max(14, (sStyle.fontsize || 20) * scaleY * 0.85 * _userScale)}px`, 'important');
@@ -624,16 +613,9 @@ window.SSTraduEngine = (function() {
                 const isNativeBox = (sStyle.borderstyle === 3);
 
                 if (_styleMode === 'full' || _styleMode === 'nobox') {
-                    // Al quitar "scaleY *", el grosor se mantendrá en un tamaño de píxeles fijo sin importar el tamaño del reproductor
                     outSize = outSize * _userScale * 0.48; if (outSize > 0) {
-                        // ... [AQUÍ ESTÁ TU CÓDIGO MANUAL DE LOS BORDES] ...
-
-                        // --- AGREGA ESTAS LÍNEAS PARA EL GLOW ---
-                        // Calcula un radio de difuminado basado en el grosor del borde
                         const glow1 = (outSize * 1.8).toFixed(2);
                         const glow2 = (outSize * 3.0).toFixed(2);
-                        
-                        // Añade las capas difuminadas (0 offsetX, 0 offsetY, blurRadius)
                         shadows.push(`0 0 ${glow1}px ${oColor}`);
                         shadows.push(`0 0 ${glow2}px ${oColor}`);
                     }

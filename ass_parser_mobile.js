@@ -1,14 +1,8 @@
-// =========================================================================
-// MOTOR S&S TRADU - ass_parser.js
-// Procesamiento de archivos ASS, lógicas de efectos y renderizado en Video
-// =========================================================================
-
 window.SSTraduEngine = (function() {
     let subtitleData = null;
     let syncInterval = null;
     let overlayContainer = null;
 
-    // --- CONTROLES DEL MOTOR ---
     function limpiar() {
         if (syncInterval) clearInterval(syncInterval);
         if (overlayContainer) overlayContainer.remove();
@@ -35,7 +29,6 @@ window.SSTraduEngine = (function() {
         
         if (!subtitleData || !subtitleData.cues.length) return false;
 
-        // REQUISITO: Filtro Anti-Chromas / Glitch (Deduplicación)
         const fxChroma = document.getElementById('ss-fx-chroma')?.checked !== false;
         if (!fxChroma) {
             const mapUnicos = new Map();
@@ -60,7 +53,6 @@ window.SSTraduEngine = (function() {
         return true;
     }
 
-    // --- CAPA VISUAL Y SINCRONIZACIÓN ---
     function createOverlay() {
         const video = document.querySelector('video');
         if (!video) return;
@@ -74,7 +66,7 @@ window.SSTraduEngine = (function() {
         overlayContainer.style.width = '100%';
         overlayContainer.style.height = '100%';
         overlayContainer.style.pointerEvents = 'none';
-        overlayContainer.style.zIndex = '40'; // Encima del video, bajo los controles de YouTube
+        overlayContainer.style.zIndex = '40';
         container.appendChild(overlayContainer);
     }
 
@@ -85,7 +77,7 @@ window.SSTraduEngine = (function() {
             if (video && !video.paused) {
                 renderCues(video.currentTime);
             }
-        }, 33); // Aprox ~30fps
+        }, 33);
     }
 
     function renderCues(currentTimeSec) {
@@ -111,7 +103,6 @@ window.SSTraduEngine = (function() {
         });
     }
 
-    // --- PARSER DEL ARCHIVO ASS ---
     function parseASS(content) {
         const lines = content.split(/\r?\n/);
         const styles = {};
@@ -184,8 +175,7 @@ window.SSTraduEngine = (function() {
         if (isNaN(start) || isNaN(end)) return null;
         
         let styleName = dialogue.style || 'Default';
-        
-        // REQUISITO: "Sin cajas" -> Reemplazar sufijo Box
+
         const _styleMode = document.getElementById('ss-style')?.value || 'full';
         if (_styleMode === 'nobox' && styleName.includes('Box')) {
             styleName = styleName.replace('Box', '');
@@ -209,7 +199,6 @@ window.SSTraduEngine = (function() {
         };
     }
 
-    // --- PROCESAMIENTO DE TAGS Y TEXTOS ---
     function extractGlobalTags(text) {
         const tags = {};
         
@@ -346,12 +335,10 @@ window.SSTraduEngine = (function() {
         return transforms[alignment] || 'translate(-50%, -100%)';
     }
 
-    // --- RENDERIZADO DEL SUBTÍTULO ---
     function renderASSCue(container, cue, relativeTimeMs, cueDurationMs, videoWidth, videoHeight, scaleX, scaleY) {
         const style = cue.style || {};
         const _styleMode = document.getElementById('ss-style')?.value || 'full';
-        
-        // REQUISITO: Anulación estricta para SRT Limpio
+
         if (_styleMode === 'clean' || _styleMode === 'srt') {
             cue.pos = null; cue.move = null; 
             style.alignment = 2; 
@@ -364,8 +351,7 @@ window.SSTraduEngine = (function() {
         
         let posX, posY;
         const alignment = style.alignment || 2;
-        
-        // Coordenadas
+
         if (cue.move) {
             let progress = (relativeTimeMs <= 0) ? 0 : (relativeTimeMs >= cueDurationMs) ? 1 : (relativeTimeMs / cueDurationMs);
             posX = cue.move.x1 + (cue.move.x2 - cue.move.x1) * progress;
@@ -387,7 +373,6 @@ window.SSTraduEngine = (function() {
         container.style.transform = getASSTransform(alignment);
         container.style.textAlign = (alignment % 3 === 1) ? 'left' : (alignment % 3 === 0) ? 'right' : 'center';
 
-        // REQUISITO: Transiciones / Animaciones
         if (_fxAnim) {
             let opacity = 1;
             if (cue.fadeIn > 0 && relativeTimeMs < cue.fadeIn) {
@@ -400,7 +385,6 @@ window.SSTraduEngine = (function() {
             container.style.opacity = 1;
         }
 
-        // REQUISITO: Cajas Independientes
         if (_fxBox) {
             const op = parseInt(document.getElementById('ss-box-opacity')?.value || '80') / 100;
             let bgColor = applyAlphaToColor(style.backColor || 'rgba(0,0,0,1)', op);
@@ -414,7 +398,6 @@ window.SSTraduEngine = (function() {
 
         const _userScale = parseFloat(document.getElementById('ss-scale')?.value || '1') || 1;
 
-        // Render de Letras/Spans
         cue.spans.forEach(spanData => {
             if (!spanData.text) return;
             const lines = spanData.text.split('\\n').join('\\N').split('\\N');
@@ -426,13 +409,11 @@ window.SSTraduEngine = (function() {
                 const span = document.createElement('span');
                 let sStyle = { ...spanData.style };
 
-                // Apagar Karaokes si se desactivó animaciones
                 if (!_fxAnim) { 
                     sStyle.karaokeDuration = 0; 
                     sStyle.secondaryColor = sStyle.primaryColor; 
                 }
 
-                // REQUISITOS: Overrides "Solo Limpio", "SRT B/N" y "SRT Color"
                 if (_styleMode === 'clean') {
                     sStyle.primaryColor = 'rgba(255,255,255,1)'; 
                     sStyle.outline = 0; 
@@ -449,7 +430,6 @@ window.SSTraduEngine = (function() {
                     sStyle.shadow = 1.5;
                 }
 
-                // Aplicar estilos calculados
                 span.style.fontFamily = getASSFontFamily(sStyle.fontname || sStyle.fontName || '');
                 span.style.fontSize = `${Math.max(14, (sStyle.fontsize || 20) * scaleY * 0.8625 * _userScale)}px`;
                 span.style.color = applyAlphaToColor(sStyle.primaryColor, sStyle.alpha || 1);
@@ -467,7 +447,6 @@ window.SSTraduEngine = (function() {
                 }
                 span.style.textShadow = shadows.length ? shadows.join(', ') : 'none';
 
-                // Efecto Karaoke Nativo (Degradado Webkit)
                 const kOffset = spanData.karaokeOffset || 0;
                 const kDur = sStyle.karaokeDuration || 0;
                 
@@ -491,7 +470,6 @@ window.SSTraduEngine = (function() {
         });
     }
 
-    // Exponer solo las funciones necesarias para content.js
     return {
         limpiar,
         iniciarMotor,
