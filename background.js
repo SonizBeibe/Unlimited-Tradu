@@ -14,7 +14,7 @@ const ORACLE_BASE = 'http://129.146.84.143:5001';
 const LOCAL_BASE   = 'http://localhost:5001';
 // El puente por internet (Cloudflare Worker) hacia el servidor del dueño. Lo completa
 // puente/desplegar.bat; vacío = solo el servidor de esta PC.
-const PUENTE_BASE  = 'https://utraduu.dennisaxel17.workers.dev';
+const PUENTE_BASE  = 'https://utraduu.abysstudio.workers.dev';
 
 // TEMPORAL (prueba): Gemini también va al servidor local. Volver a false para usar Oracle.
 const GEMINI_POR_LOCAL = false;

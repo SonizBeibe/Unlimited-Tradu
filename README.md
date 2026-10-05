@@ -61,7 +61,7 @@ Real fan-made YouTube subtitles, **Portuguese ➜ Spanish**, translated with **L
 #### 💎 How to unlock Local Mode
 1. In the panel, choose **🖥️ Local**. Your ID appears below: `🔑 Tu ID: XXXX-XXXX` (click to copy it).
 2. Join the membership at **[ko-fi.com/sonizzidk](https://ko-fi.com/sonizzidk)**.
-3. Open the **[activation page](https://utraduu.dennisaxel17.workers.dev/activar)**, enter the email you paid with on Ko-fi and your ID. Done: renewals are credited automatically.
+3. Open the **[activation page](https://utraduu.abysstudio.workers.dev/activar)**, enter the email you paid with on Ko-fi and your ID. Done: renewals are credited automatically.
 
 > Your ID belongs to your browser. If you reinstall the extension or move to another PC, you get a new ID: message me on Ko-fi so I can move your membership to it.
 
@@ -111,7 +111,7 @@ Real fan-made YouTube subtitles, **Portuguese ➜ Spanish**, translated with **L
 #### 💎 Cómo activar el Modo Local
 1. En el panel, elige **🖥️ Local**. Abajo aparece tu ID: `🔑 Tu ID: XXXX-XXXX` (clic para copiarlo).
 2. Hazte miembro en **[ko-fi.com/sonizzidk](https://ko-fi.com/sonizzidk)**.
-3. Entra a la **[página de activación](https://utraduu.dennisaxel17.workers.dev/activar)**, pon el email con el que pagaste en Ko-fi y tu ID. Listo: las renovaciones se acreditan solas.
+3. Entra a la **[página de activación](https://utraduu.abysstudio.workers.dev/activar)**, pon el email con el que pagaste en Ko-fi y tu ID. Listo: las renovaciones se acreditan solas.
 
 > Tu ID es de tu navegador. Si reinstalas la extensión o cambias de PC, sale un ID nuevo: escríbeme por Ko-fi y te paso la membresía.
 
