@@ -17,7 +17,7 @@
 
 <br>
 
-<a href="https://github.com/SonizBeibe/Unlimited-Tradu/releases/latest"><b>⬇️ Download v2.0</b></a> &nbsp;·&nbsp; <a href="https://ko-fi.com/sonizzidk"><b>💎 Unlock Local Mode</b></a>
+<a href="https://github.com/SonizBeibe/Unlimited-Tradu/releases/latest"><b>⬇️ Download v2.0.1</b></a> &nbsp;·&nbsp; <a href="https://ko-fi.com/sonizzidk"><b>💎 Unlock Local Mode</b></a>
 
 <hr>
 </div>
